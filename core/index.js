@@ -15,39 +15,39 @@ class Napnux extends Nux {
     this.handler = this.handler.bind(this);
   }
   handler(req, res, info) {
-    console.log(req.url);
+    info = info || this.parse(req);
     let funcs = [];
     let arr = this.mwares;
+
     const purl = url.parse(req.url, true);
-    const lkey = base((req.path = purl.pathname));
-    const exists = this.find(req.method, req.url);
+    const lkey = base((req.path = info.pathname));
+    const exists = this.find(req.method, info.pathname);
     const query = Object.fromEntries(Object.entries(purl.query));
     if (this.bmwares[lkey] !== void 0) {
       arr = arr.concat(this.bmwares[lkey]);
     }
-    console.log(lkey, exists);
+
     if (exists) {
       funcs = exists.handlers;
       req.params = exists.params;
     } else if (this.apps[lkey] !== void 0) {
       mutate(lkey, req);
-      funcs.push(this.apps[lkey].handler.bind(null, req, res));
-    } else {
-      funcs.push(this.onNotFound);
+      info.pathname = req.path;
+      funcs = funcs.concat(this.apps[lkey].handler.bind(null, req, res, info));
     }
+    funcs.push(this.onNotFound);
 
     req.search = purl.search;
     req.query = query;
-    if (arr.length === 0 && funcs.length === 1) {
-      funcs[0](req, res);
-    }
 
-    let i = 0;
+    let i = 0,
+      len = arr.length,
+      num = funcs.length;
+    if (len === i && num === 1) return funcs[0](req, res);
     let next = (err) => (err ? this.onError(err, req, res, next) : loop());
-    let loop = (_) =>
-      res.finished || (i < arr.length && arr[i++](req, res, next));
-
-    arr.push(...funcs);
+    let loop = (_) => res.finished || (i < len && arr[i++](req, res, next));
+    arr = arr.concat(funcs);
+    len += num;
     loop();
   }
 
@@ -86,16 +86,16 @@ class Napnux extends Nux {
     return this;
   }
 
-  // add(method, path, ...funcs) {
-  //   let lkey = wslash(base(path));
-  //   if (this.apps[lkey] !== "undefined") {
-  //     throw new Error(`
-  //   Cannot add route ${method} ${path} because a sub app is already mounted on ${lkey}
-  // `);
-  //   }
+  add(method, path, ...funcs) {
+    let lkey = wslash(base(path));
+    if (this.apps[lkey] !== void 0) {
+      throw new Error(`
+    Cannot add route ${method} ${path} because a sub app is already mounted on ${lkey}
+  `);
+    }
 
-  //   return super.add(method, path, ...funcs);
-  // }
+    return super.add(method, path, ...funcs);
+  }
 
   start(...args) {
     this.server = this.server || http.createServer(this.handler);

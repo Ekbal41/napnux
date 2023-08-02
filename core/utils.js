@@ -7,12 +7,12 @@ function base(x) {
   return y > 1 ? x.substring(0, y) : x;
 }
 function mutate(str, req) {
-	// req.url = req.url.substring(str.length) || '/';
-	// req.path = req.path.substring(str.length) || '/';
+  req.url = req.url.substring(str.length) || "/";
+  req.path = req.path.substring(str.length) || "/";
 }
 
 module.exports = {
   wslash,
   base,
-  mutate
+  mutate,
 };
