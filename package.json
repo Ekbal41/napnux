@@ -4,7 +4,7 @@
   "description": "A lightweight & low overhead Node.js web framework",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "dev": "node test.js"
   },
   "keywords": [
     "web",
