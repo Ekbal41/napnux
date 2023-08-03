@@ -1,5 +1,6 @@
 const napnux = require("./index.js");
 const users = require("./tusers.js");
+const path = require("path");
 
 function mwares(req, res, next) {
   console.log("global  middleware running");
@@ -11,6 +12,10 @@ function bmwares(req, res, next) {
 }
 
 napnux()
+  .static(path.join(__dirname, "public"), {
+    index: ["index.html", "index.htm"],
+  })
+  .ejs()
   .use("/users", users)
   .use(mwares)
   .use("/bmwares", bmwares)
@@ -20,11 +25,7 @@ napnux()
     res.end("I am a bmware");
   })
   .get("/", (req, res) => {
-    const json = JSON.stringify({
-      hay: "welcome to napnux",
-      hope: "you enjoy it",
-    });
-    res.end(json);
+    res.render("hello");
   })
 
   .get("/hello/:name/:age?", (req, res) => {

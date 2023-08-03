@@ -20,7 +20,9 @@
     "index.js"
   ],
   "dependencies": {
+    "ejs": "^3.1.9",
     "path-to-regexp": "^6.2.1",
+    "serve-static": "^1.15.0",
     "url": "^0.11.1"
   }
 }

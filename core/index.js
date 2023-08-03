@@ -1,8 +1,11 @@
 const http = require("http");
 const url = require("url");
+var serveStatic = require("serve-static");
 const Nux = require("../packages/nux");
 const { wslash, base, mutate } = require("./utils.js");
 const parser = require("../packages/parser.js");
+const nejs = require("../packages/nejs.js");
+const path = require("path");
 
 class Napnux extends Nux {
   constructor(opts = {}) {
@@ -14,6 +17,18 @@ class Napnux extends Nux {
     this.server = opts.server;
     this.handler = this.handler.bind(this);
   }
+
+  static(root, ...args) {
+    const skey = path.basename(root);
+    this.use(wslash(skey), serveStatic(root, ...args));
+    return this;
+  }
+
+  ejs(opts = {}) {
+    this.use(nejs(opts));
+    return this;
+  }
+
   handler(req, res, info) {
     info = info || this.parse(req);
     let funcs = [];
@@ -53,7 +68,7 @@ class Napnux extends Nux {
 
   onNotFound(req, res) {
     res.statusCode = 404;
-    res.end("Not Found");
+    res.end("Not Found0");
   }
   onError(err, req, res, next) {
     res.statusCode = 500;
