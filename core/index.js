@@ -5,6 +5,9 @@ const Nux = require("../packages/nux");
 const { wslash, base, mutate } = require("./utils.js");
 const parser = require("../packages/parser.js");
 const nejs = require("../packages/nejs.js");
+const nflash = require("../packages/nflash.js");
+const redirect = require("../packages/redirect.js");
+const setAllSettings = require("./settings.js");
 const path = require("path");
 
 class Napnux extends Nux {
@@ -13,9 +16,14 @@ class Napnux extends Nux {
     this.apps = [];
     this.mwares = [];
     this.bmwares = [];
+    this.settings = {};
     this.parse = parser;
     this.server = opts.server;
     this.handler = this.handler.bind(this);
+  }
+
+  notamid(req, res) {
+    res.redirect = (url) => redirect(req, res, url);
   }
 
   static(root, ...args) {
@@ -24,16 +32,26 @@ class Napnux extends Nux {
     return this;
   }
 
+  set(key, val) {
+    this.settings[key] = val;
+    return this;
+  }
+
   ejs(opts = {}) {
     this.use(nejs(opts));
     return this;
   }
 
+  flash() {
+    this.use(nflash());
+    return this;
+  }
+
   handler(req, res, info) {
     info = info || this.parse(req);
+    setAllSettings(req, res, this.settings);
     let funcs = [];
     let arr = this.mwares;
-
     const purl = url.parse(req.url, true);
     const lkey = base((req.path = info.pathname));
     const exists = this.find(req.method, info.pathname);
@@ -54,6 +72,7 @@ class Napnux extends Nux {
 
     req.search = purl.search;
     req.query = query;
+    this.notamid(req, res); //run before middlewares
 
     let i = 0,
       len = arr.length,
@@ -113,7 +132,7 @@ class Napnux extends Nux {
   }
 
   start(...args) {
-    this.server = this.server || http.createServer(this.handler);
+    this.server = this.server || http.createServer(this.handler, this.run);
     this.server.listen(...args);
   }
 }
