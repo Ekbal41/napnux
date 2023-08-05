@@ -19,4 +19,5 @@ module.exports = {
     typeof value === "string" &&
     /^(http|https):\/\/[^\s/$.?#].[^\s]*$/.test(value),
   slug: (value) => /^[a-z0-9-]+$/.test(value),
+  //   range: (value, from, to) => value >= from && value <= to,
 };

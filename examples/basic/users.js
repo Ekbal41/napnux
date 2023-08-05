@@ -1,4 +1,4 @@
-const napnux = require("./index.js");
+const napnux = require("../../index.js");
 
 module.exports = napnux().get("/", (req, res, info) => {
   let flash = req.flash("info")

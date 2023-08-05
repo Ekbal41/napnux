@@ -1,5 +1,5 @@
-const napnux = require("./index.js");
-const users = require("./tusers.js");
+const napnux = require("../../index.js");
+const users = require("./users.js");
 const path = require("path");
 var session = require("express-session");
 
