@@ -7,8 +7,13 @@ const parser = require("../packages/parser.js");
 const nejs = require("../packages/nejs.js");
 const nflash = require("../packages/nflash.js");
 const redirect = require("../packages/redirect.js");
-const setAllSettings = require("./settings.js");
 const path = require("path");
+
+let headers = {
+  "X-Frame-Options": "SAMEORIGIN",
+  "X-XSS-Protection": "1; mode=block",
+  "X-Content-Type-Options": "nosniff",
+};
 
 class Napnux extends Nux {
   constructor(opts = {}) {
@@ -16,10 +21,12 @@ class Napnux extends Nux {
     this.apps = [];
     this.mwares = [];
     this.bmwares = [];
-    this.settings = {};
     this.parse = parser;
     this.server = opts.server;
     this.handler = this.handler.bind(this);
+    // this.settings = {
+    //   hdrs: headers,
+    // };
   }
 
   notamid(req, res) {
@@ -32,10 +39,11 @@ class Napnux extends Nux {
     return this;
   }
 
-  set(key, val) {
-    this.settings[key] = val;
-    return this;
-  }
+  // set(setType, key, val) {
+  //   if (setType === "header") {
+  //     this.settings.hdrs[key] = val;
+  //   }
+  // }
 
   ejs(opts = {}) {
     this.use(nejs(opts));
@@ -49,7 +57,6 @@ class Napnux extends Nux {
 
   handler(req, res, info) {
     info = info || this.parse(req);
-    setAllSettings(req, res, this.settings);
     let funcs = [];
     let arr = this.mwares;
     const purl = url.parse(req.url, true);
@@ -132,7 +139,7 @@ class Napnux extends Nux {
   }
 
   start(...args) {
-    this.server = this.server || http.createServer(this.handler, this.run);
+    this.server = this.server || http.createServer(this.handler);
     this.server.listen(...args);
   }
 }

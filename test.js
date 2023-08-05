@@ -16,12 +16,13 @@ napnux()
   .static(path.join(__dirname, "public"), {
     index: ["index.html", "index.htm"],
   })
-  .set("trustProxyHeader", true)
+  // .set("trustProxyHeader", true)
   .use(
     session({
       secret: "keyboard cat",
       resave: false,
       saveUninitialized: true,
+      cookie: { secure: false },
     })
   )
   .ejs()
@@ -42,16 +43,14 @@ napnux()
     res.end(json);
   })
   .get("/", (req, res) => {
-    // console.log(req);
-    // res.render("hello");
-    // req.session.p = "oo0000";
     req.flash("info", { msg: "Welcome" });
-    res.redirect("/users");
+    res.render("hello");
+    // res.redirect("/users");
   })
 
   .get("/hello/:name/:age?", (req, res) => {
     res.end(`Hello ${req.params.name}! You are ${req.params.age} years old.`);
   })
-  .start(3001, () => {
-    console.log("> Server Listening on http://localhost:3001");
+  .start(3000, () => {
+    console.log("> Server Listening on http://localhost:3000");
   });
