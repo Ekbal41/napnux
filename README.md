@@ -1,4 +1,4 @@
-# Napnux
+<img src="https://github.com/Ekbal41/napnux/blob/main/napnux.png" width=50% height=50%>
 
 A fast and low-overhead web framework for [Node.js](http://nodejs.org).
 
@@ -40,34 +40,26 @@ for more information.
 
 ## Quick Start
 
-The quickest way to get started with napnux is to use `nux-cli` to generate a project.
+The quickest way to get started with napnux is to use `napnux-cli` to generate a project.
 
 ```console
- npm install -g nux-cli
+ npm install -g napnux-cli
 ```
 
-To create a project  run the following command and follow the given instructions
+To create a project run the following command.
 
 ```console
- nux-cli init
-```
-
-
-Install dependencies:
-
-```console
- npm install
+ nux create-project <projectName>
 ```
 
 To start the dev server:
 
 ```console
+cd <projectName>
 npm run dev
 ```
 
 View the website at: http://localhost:3001
-
-
 
 ## License
 
