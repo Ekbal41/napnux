@@ -1,6 +1,6 @@
 # Napnux
 
-A fast and low-overhead web framework for Node JS. [Node.js](http://nodejs.org).
+A fast and low-overhead web framework for [Node.js](http://nodejs.org).
 
 ```js
 const napnux = require("napnux");
