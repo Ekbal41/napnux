@@ -1,6 +1,6 @@
 {
-  "name": "napnus",
-  "version": "1.0.1",
+  "name": "napnux",
+  "version": "1.0.3",
   "description": "A lightweight & low overhead Node.js web framework",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,6 @@
   ],
   "dependencies": {
     "ejs": "^3.1.9",
-    "express-session": "^1.17.3",
     "memory-cache": "^0.2.0",
     "path-to-regexp": "^6.2.1",
     "serve-static": "^1.15.0",
