@@ -1,10 +1,10 @@
 {
   "name": "napnux",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A lightweight & low overhead Node.js web framework",
   "main": "index.js",
   "scripts": {
-    "dev": "node test.js"
+    "dev": "node examples/basic/server.js"
   },
   "keywords": [
     "web",
@@ -15,8 +15,7 @@
   "author": "Asif Ekbal",
   "license": "ISC",
   "files": [
-    "core/*.js",
-    "packages/*.js",
+    "lib/**",
     "index.js"
   ],
   "dependencies": {

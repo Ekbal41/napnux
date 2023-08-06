@@ -1,2 +1,2 @@
-const napnux = require("./lib/napnux.js");
+const napnux = require("./lib");
 module.exports = napnux;
