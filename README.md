@@ -32,7 +32,7 @@ for more information.
 - High performance
 - Good routing
 - Concept of apps
-- Cli for generating project ot apps quickly
+- Cli for generating project or apps quickly
 
 ## Link to Docs
 
@@ -40,21 +40,20 @@ for more information.
 
 ## Quick Start
 
-The quickest way to get started with napnuxt is to use `nux-cli` to generate a project.
+The quickest way to get started with napnux is to use `nux-cli` to generate a project.
 
 ```console
  npm install -g nux-cli
 ```
 
-To create a project:
+To create a project  run the following command and follow the given instructions
 
 ```console
  nux-cli init
 ```
 
-And follow the given instructions
 
-Install dependencies: In the project directory,
+Install dependencies:
 
 ```console
  npm install
