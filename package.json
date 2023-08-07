@@ -13,7 +13,7 @@
     "napnux"
   ],
   "author": "Asif Ekbal",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "lib/**",
     "index.js"
@@ -23,7 +23,6 @@
     "memory-cache": "^0.2.0",
     "path-to-regexp": "^6.2.1",
     "serve-static": "^1.15.0",
-    "url": "^0.11.1",
-    "util": "^0.12.5"
+    "url": "^0.11.1"
   }
 }
