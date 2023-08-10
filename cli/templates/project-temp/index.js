@@ -3,7 +3,7 @@ server
   // Register all your apps here
   // Note: You can't resgister apps with same base path
   // Note: You can't resigter an app in the root path '.use("/", yourapp)' will not work
-  .use("/todo", todo)
+  // .use("/todo", todo)
 
   // Set static serving directory for the project
   // This directory can be also used by apps, Ex : /public/style.css

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Found!!</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: monospace;
+      }
+      .container {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 2rem;
+      }
+      .error-code {
+        font-size: 5rem;
+        color: #e74c3c;
+      }
+      .error-message {
+        font-size: 1.5rem;
+        color: #333;
+      }
+      p {
+        margin: 0px;
+        padding: 0px;
+      }
+      .route {
+        color: blue;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      a:hover {
+        color: #e74c3c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="error-code">404</div>
+      <div class="error-message">
+        <p><span class="route">{{requestedRoute}}</span> not found!</p>
+        <a href="/"> ◀ Go back to home</a>
+      </div>
+    </div>
+  </body>
+</html>
