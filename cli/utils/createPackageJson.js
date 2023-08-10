@@ -4,7 +4,11 @@ const fs = require("fs").promises;
 
 async function createPackageJson(targetPath, projectName) {
   const packageData = {
-    name: projectName,
+    name: `${
+      projectName === "." || projectName === "./"
+        ? path.basename(targetPath)
+        : projectName
+    }}`,
     version: "1.0.9",
     description: `A project created with Napnux CLI: ${projectName}`,
     main: "index.js",
