@@ -1,6 +1,6 @@
 {
   "name": "napnux",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A lightweight & low overhead Node.js web framework",
   "main": "index.js",
   "scripts": {
