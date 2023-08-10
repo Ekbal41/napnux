@@ -10,10 +10,10 @@ async function createPackageJson(targetPath, projectName) {
     main: "index.js",
     scripts: {
       start: "node index.js",
-      nodemon: "nodemon index.js",
+      nodemon: "nodemon --ignore node_modules --watch . index.js",
       bsync:
-        "browser-sync start --proxy localhost:3000 --files 'public, views', apps/**/**",
-      dev: "npm-run-all --parallel bsync nodemon",
+        "browser-sync start --proxy localhost:3000 --watch --files='**/*' --no-ui --reload-delay 1000",
+      dev: "npm-run-all --parallel  nodemon bsync",
     },
     keywords: ["napnux", "napnux cli"],
     author: "",
