@@ -1,14 +1,14 @@
 const napnux = require("napnux");
 
 module.exports = napnux()
-  // Set static serving directory for the app
-  // Static path for app : /<appName>/public/style.css
+  // Define the directory for serving static files within the app
+  // The static path for the app will be: /<appName>/public/style.css
   .static(__dirname + "/public")
 
-  // Set view engine and views directory for app
+  // Configure the view engine and specify the directory for app views
   .ejs({ views: __dirname + "/views" })
 
-  // All routes for the app goes here
+  // Define the routes for the app below
   .get("/", (req, res) => {
     res.render("hello-from-app", {
       title: "Napnux | App",
