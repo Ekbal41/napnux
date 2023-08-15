@@ -40,10 +40,11 @@ for more information.
 
 ## Quick Start
 
-The quickest way to get started with napnux is to use `napnux-cli` to generate a project.
+The quickest way to get started with napnux is to use `cli` to generate a project.  
+Install `Napnux` globaly to use Cli.
 
 ```console
- npm install -g napnux-cli
+ npm install -g napnux
 ```
 
 To create a project run the following command.
