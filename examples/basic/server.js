@@ -11,7 +11,7 @@ root
   .use("/notes", notes)
   .use("/blogs", blogs)
   .static(__dirname + "/public")
-  .ejs({
+  .nunjucks({
     views: __dirname + "/views",
   })
   .start(3000, () => {

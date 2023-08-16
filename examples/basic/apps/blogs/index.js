@@ -2,7 +2,7 @@ const napnux = require("../../../../index.js");
 
 module.exports = napnux()
   .static(__dirname + "/public")
-  .ejs({
+  .nunjucks({
     views: __dirname + "/views",
   })
   .get("/", (req, res) => {

@@ -2,7 +2,7 @@ const napnux = require("napnux");
 module.exports = napnux()
   // All routes for the project root goes here
   .get("/", (req, res) => {
-    res.render("hello-from-project", {
+    res.render("welcome", {
       title: "Napnux | Project 🎉",
       name: "Napnux js!",
     });
