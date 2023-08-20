@@ -3,7 +3,7 @@
 const { program } = require("commander");
 const fs = require("fs").promises;
 const path = require("path");
-const { red, magenta } = require("colorette");
+const { red, magenta, green, blue, bold } = require("colorette");
 const createSpinner = require("./utils/createSpinner");
 const copyFolderRecursive = require("./utils/copyFolderRecursive");
 const createPackageJson = require("./utils/createPackageJson");
@@ -20,7 +20,12 @@ program
     const sourcePath = path.join(__dirname, "templates", "project-temp");
     const targetPath = path.join(process.cwd(), projectName);
 
-    console.log(magenta(`Creating project: ${projectName}`));
+    console.log(
+      magenta(`
+    ${green("Nux v1.0.5")}
+    ${blue("Creating project:")} ${bold(projectName.toUpperCase())}
+    `)
+    );
 
     try {
       if (!isCurrentDir) {

@@ -1,13 +1,8 @@
 const notes = require("./apps/notes");
 const blogs = require("./apps/blogs");
-const root = require("./root.js");
+const server = require("./ends.js");
 
-function logger(req, res, next) {
-  console.log(`${req.method} in [ ${req.url} ]`);
-  next();
-}
-root
-  // .use(logger)
+server
   .use("/notes", notes)
   .use("/blogs", blogs)
   .static(__dirname + "/public")

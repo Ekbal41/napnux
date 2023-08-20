@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs").promises;
-const { logInfo } = require("./logs");
+const { blue, bold, green, yellow, gray } = require("colorette");
 
 async function copyFolderRecursive(source, target) {
   try {
@@ -14,11 +14,21 @@ async function copyFolderRecursive(source, target) {
 
       if (stats.isDirectory()) {
         await fs.mkdir(targetFilePath);
-        logInfo(`Created folder: ${targetFilePath}`);
+
+        console.log(
+          `${blue("Info: ")}${green(path.basename(sourceFilePath))} ${gray(
+            targetFilePath
+          )}`
+        );
+
         await copyFolderRecursive(sourceFilePath, targetFilePath);
       } else {
         await fs.copyFile(sourceFilePath, targetFilePath);
-        logInfo(`Copied file: ${targetFilePath}`);
+        console.log(
+          `${blue("Info: ")}${green(path.basename(sourceFilePath))} ${gray(
+            targetFilePath
+          )}`
+        );
       }
     }
   } catch (error) {

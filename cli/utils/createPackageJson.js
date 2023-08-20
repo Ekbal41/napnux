@@ -1,4 +1,4 @@
-const { logInfo } = require("./logs");
+const { green, yellow, gray, blue } = require("colorette");
 const path = require("path");
 const fs = require("fs").promises;
 
@@ -38,7 +38,9 @@ async function createPackageJson(targetPath, projectName) {
   const packageJsonPath = path.join(targetPath, "package.json");
 
   await fs.writeFile(packageJsonPath, JSON.stringify(packageData, null, 2));
-  logInfo(`Created package.json: ${packageJsonPath}`);
+  console.log(
+    `${blue("Info: ")}${green("package.json")} ${gray(packageJsonPath)}`
+  );
 }
 
 module.exports = createPackageJson;
