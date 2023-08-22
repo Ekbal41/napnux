@@ -1,10 +1,11 @@
 {
   "name": "napnux",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A lightweight & low overhead Node.js web framework",
   "main": "index.js",
   "scripts": {
-    "dev": "node examples/basic/server.js"
+    "dev": "node examples/basic",
+    "test": "npx mocha test/test.js"
   },
   "bin": {
     "nux": "cli/napnux-cli.js"
@@ -23,6 +24,7 @@
     "index.js"
   ],
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cli-spinners": "^2.9.0",
     "colorette": "^2.0.20",
     "commander": "^11.0.0",
@@ -32,5 +34,8 @@
     "path-to-regexp": "^6.2.1",
     "serve-static": "^1.15.0",
     "url": "^0.11.1"
+  },
+  "devDependencies": {
+    "supertest": "^6.3.3"
   }
 }
