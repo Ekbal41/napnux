@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="public/style.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {# <link rel="stylesheet" href="public/style.css"/> #}
     <title>Hello Dev🎉</title>
   </head>
   <body>
     <div class="container">
-      <h1>Hello Dev🎉 | Root App</h1>
+      {# <h1>Hello Dev🎉 | Root App</h1>
       <div class="flex">
         <a href="/">Root</a>
         <a href="/blogs">Blogs</a>
         <a href="/notes">Notes</a>
-      </div>
+      </div> #}
+
+      <form
+      action="/"
+      method="POST"
+      >
+        <input type="text" name="name" placeholder="Enter your name"/>
+        <input type="email" name="email" placeholder="Enter your email"/>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </body>
 </html>
