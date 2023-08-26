@@ -1,11 +1,13 @@
 const napnux = require("../../index.js");
+const storage = require("./storage.js")("uploads");
 
 module.exports = napnux()
   .get("/", (req, res) => {
     res.render("hello");
   })
-  .post("/", (req, res) => {
+  .post("/", async (req, res) => {
     console.log("req.body", req.body);
+    // await storage.store(req.body.userImg, "userImg2.png");
     res.redirect("/");
   })
 
