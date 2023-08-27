@@ -1,7 +1,7 @@
 const path = require("path");
 const napnux = require("../../index.js");
 
-const storage = napnux().FSStorage({
+const storage = napnux.FSStorage({
   storageDir: path.join(__dirname, "givens"),
   linkOrCopyTo: path.join(__dirname, "public"),
 });
