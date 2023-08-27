@@ -10,8 +10,8 @@ server
   .static(__dirname + "/public")
 
   // Configure the view engine and specify the directory for project views
-  // While apps can also access this directory, it's advisable to use separate views directories for each app
-  .nunjucks({ views: __dirname + "/views" })
+  // While apps can also access this directory, it's advisable to use separate views for each app
+  .views(__dirname + "/views")
 
   // Start the server on port 3000
   .start(3000, () => {

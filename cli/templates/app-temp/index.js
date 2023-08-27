@@ -6,7 +6,7 @@ module.exports = napnux()
   .static(__dirname + "/public")
 
   // Configure the view engine and specify the directory for app views
-  .nunjucks({ views: __dirname + "/views" })
+  .views(__dirname + "/views")
 
   // Define the routes for the app below
   .get("/", (req, res) => {
