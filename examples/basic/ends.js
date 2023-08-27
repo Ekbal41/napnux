@@ -1,13 +1,17 @@
+const path = require("path");
 const napnux = require("../../index.js");
-const storage = require("./storage.js")("uploads");
+
+const storage = napnux().FSStorage({
+  storageDir: path.join(__dirname, "givens"),
+  linkOrCopyTo: path.join(__dirname, "public"),
+});
 
 module.exports = napnux()
   .get("/", (req, res) => {
     res.render("hello");
   })
   .post("/", async (req, res) => {
-    console.log("req.body", req.body);
-    // await storage.store(req.body.userImg, "userImg2.png");
+    await storage.store(req.body.userImg.data, req.body.userImg.name);
     res.redirect("/");
   })
 
