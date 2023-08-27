@@ -1,8 +1,8 @@
-const { green, yellow, gray, blue } = require("colorette");
+const { green, gray, blue } = require("colorette");
 const path = require("path");
 const fs = require("fs").promises;
 
-async function createPackageJson(targetPath, projectName) {
+async function createPackageJson (targetPath, projectName) {
   const packageData = {
     name: `${
       projectName === "." || projectName === "./"
@@ -17,22 +17,22 @@ async function createPackageJson(targetPath, projectName) {
       nodemon: "nodemon --ignore node_modules --watch . index.js",
       bsync:
         "browser-sync start --proxy localhost:3000 --watch --files='**/*' --no-ui --reload-delay 1000",
-      dev: "npm-run-all --parallel  nodemon bsync",
+      dev: "npm-run-all --parallel  nodemon bsync"
     },
     keywords: ["napnux", "napnux cli"],
     author: "",
     license: "MIT",
     dependencies: {
-      napnux: "*",
+      napnux: "*"
     },
     devDependencies: {
       "browser-sync": "^2.29.3",
       nodemon: "^3.0.1",
-      "npm-run-all": "^4.1.5",
+      "npm-run-all": "^4.1.5"
     },
     engines: {
-      node: "14.x",
-    },
+      node: "14.x"
+    }
   };
 
   const packageJsonPath = path.join(targetPath, "package.json");

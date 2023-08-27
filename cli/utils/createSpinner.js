@@ -2,7 +2,7 @@ const spinners = require("cli-spinners");
 const readline = require("readline");
 const { red, yellow } = require("colorette");
 
-function createSpinner() {
+function createSpinner () {
   const frames = spinners.dots.frames;
   let currentFrame = 0;
   let spinnerInterval;
@@ -30,7 +30,7 @@ function createSpinner() {
       readline.clearLine(process.stdout, 0);
       readline.cursorTo(process.stdout, 0);
       console.log(red(text));
-    },
+    }
   };
 
   return spinner;

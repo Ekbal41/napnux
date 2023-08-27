@@ -1,7 +1,7 @@
 const { exec } = require("child_process");
-const { red, blue } = require("colorette");
+const { red } = require("colorette");
 
-async function installDependencies(targetPath, spinner) {
+async function installDependencies (targetPath, spinner) {
   const npmInstall = exec("npm install", { cwd: targetPath });
   console.log(`
   Using npm to install dependencies. This may take a few minutes.
