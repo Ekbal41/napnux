@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --ext .js --fix"
   },
   "bin": {
-    "nux": "cli/napnux-cli.js"
+    "nux": "nux/napnux-cli.js"
   },
   "keywords": [
     "web",
@@ -21,7 +21,7 @@
   "author": "Asif Ekbal",
   "license": "MIT",
   "files": [
-    "cli/**",
+    "nux/**",
     "lib/**",
     "index.js"
   ],

@@ -60,7 +60,7 @@ cd <projectName>
 npm run dev
 ```
 
-View the website at: http://localhost:3001
+Now dev server is available on : http://localhost:3001
 
 ## License
 
