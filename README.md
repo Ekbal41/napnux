@@ -42,27 +42,27 @@ for more information.
 
 ## Quick Start
 
-The quickest way to get started with napnux is to use `cli` to generate a project.  
-Install `Napnux` globaly to use Cli.
+The easiest way to begin with Napnux is by using the command-line interface (CLI) to generate a new project.  
+First, install Napnux globally:
 
 ```console
  npm install -g napnux
 ```
 
-To create a project run the following command.
+Then create a project with the following command:
 
 ```console
  nux create-project <projectName>
 ```
 
-To start the dev server:
+To start the development server, navigate to the project directory and run:
 
 ```console
 cd <projectName>
 npm run dev
 ```
 
-Now dev server is available on : http://localhost:3001
+Your development server will be accessible at: http://localhost:3001.
 
 ## License
 
