@@ -6,9 +6,7 @@ server
   .use("/notes", notes)
   .use("/blogs", blogs)
   .static(__dirname + "/public")
-  .nunjucks({
-    views: __dirname + "/views",
-  })
+  .views(__dirname + "/views")
   .start(3000, () => {
     console.log("> Server Listening on http://localhost:3000");
   });
