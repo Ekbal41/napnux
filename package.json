@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --ext .js --fix"
   },
   "bin": {
-    "nux": "nux/napnux-cli.js"
+    "nux": "nux"
   },
   "keywords": [
     "web",

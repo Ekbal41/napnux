@@ -4,15 +4,15 @@ const { program } = require("commander");
 const fs = require("fs").promises;
 const path = require("path");
 const { red, magenta, green, blue, bold } = require("colorette");
-const createSpinner = require("./utils/createSpinner");
-const copyFolderRecursive = require("./utils/copyFolderRecursive");
-const createPackageJson = require("./utils/createPackageJson");
-const installDependencies = require("./utils/installDependencies");
+const createSpinner = require("./tools/createSpinner");
+const copyFolderRecursive = require("./tools/copyFolderRecursive");
+const createPackageJson = require("./tools/createPackageJson");
+const installDependencies = require("./tools/installDependencies");
 
 const spinner = createSpinner();
 
 program
-  .name("napnux-cli")
+  .name("Nux - Cli tool for napnux framework")
   .version("1.0.6")
   .command("create-project <projectName>")
   .action(async (projectName) => {

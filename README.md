@@ -1,6 +1,6 @@
 <img src="https://github.com/Ekbal41/napnux/blob/main/napnux.png" width=50% height=50%>
 
-A fast and low-overhead web framework for [Node.js](http://nodejs.org).
+A low-overhead and speedy web framework for [Node.js](http://nodejs.org).
 
 ```js
 const napnux = require("napnux");
