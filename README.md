@@ -2,6 +2,8 @@
 
 A low-overhead and speedy web framework for [Node.js](http://nodejs.org).
 
+## Example Usage
+
 ```js
 const napnux = require("napnux");
 const port = 3001;
@@ -30,9 +32,9 @@ for more information.
 ## Features
 
 - High performance
-- Good routing
-- Concept of apps
-- Cli for generating project or apps quickly
+- Efficient routing
+- Intuitive app architecture
+- Command-line interface for rapid project and app generation
 
 ## Link to Docs
 
