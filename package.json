@@ -1,7 +1,7 @@
 {
   "name": "napnux",
-  "version": "1.0.13",
-  "description": "A lightweight & low overhead Node.js web framework",
+  "version": "1.0.15",
+  "description": "A low-overhead and speedy web framework for Node.js",
   "main": "index.js",
   "scripts": {
     "dev": "node examples/basic",
@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --ext .js --fix"
   },
   "bin": {
-    "nux": "nux"
+    "nux": "nux/nux.js"
   },
   "keywords": [
     "web",
@@ -32,7 +32,6 @@
     "colorette": "^2.0.20",
     "commander": "^11.0.0",
     "ejs": "^3.1.9",
-    "express": "^4.18.2",
     "memory-cache": "^0.2.0",
     "nunjucks": "^3.2.4",
     "path-to-regexp": "^6.2.1",

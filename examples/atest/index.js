@@ -2,11 +2,15 @@ const notes = require("./apps/notes");
 const blogs = require("./apps/blogs");
 const server = require("./ends.js");
 
-server
+let s = server
   .use("/notes", notes)
   .use("/blogs", blogs)
-  .static(__dirname + "/public")
-  .views(__dirname + "/views")
+  // .views(__dirname + "/projectViews")
+  // .static(__dirname + "/projectPublic")
+  // .static(__dirname + "/public")
+
+  
+  // .set("viewsDir", "/projectViews")
   .start(3000, () => {
     console.log("> Server Listening on http://localhost:3000");
   });

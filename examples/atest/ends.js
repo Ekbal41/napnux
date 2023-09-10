@@ -12,7 +12,8 @@ module.exports = napnux()
   })
   .post("/", async (req, res) => {
     const { userImg } = req.body;
-    await storage.store(userImg.data, userImg.name);
+    console.log(userImg);
+    // await storage.store(userImg.data, userImg.name);
     res.redirect("/");
   })
 
