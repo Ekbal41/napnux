@@ -4,7 +4,7 @@
   "description": "A low-overhead and speedy web framework for Node.js",
   "main": "index.js",
   "scripts": {
-    "dev": "node examples/basic",
+    "dev": "node examples/dev",
     "test": "npx mocha test/test.js",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix"
