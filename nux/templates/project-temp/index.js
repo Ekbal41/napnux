@@ -1,3 +1,4 @@
+import path from "path";
 const server = require("./ends.js");
 server
   // Register your apps here
@@ -7,11 +8,11 @@ server
 
   // Set the directory for serving static files in the project
   // Apps can also utilize this directory, e.g., /public/style.css
-  .static(__dirname + "/public")
+  .static(path.join(__dirname, "/public"))
 
   // Configure the view engine and specify the directory for project views
   // While apps can also access this directory, it's advisable to use separate views for each app
-  .views(__dirname + "/views")
+  .views(path.join(__dirname, "/views"))
 
   // Start the server on port 3000
   .start(3000, () => {

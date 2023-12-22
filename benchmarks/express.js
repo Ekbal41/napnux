@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
 const A = (req, res, next) => {
-  //do something
+  // do something
   next();
 };
 const B = (req, res, next) => {
-  //do something
+  // do something
   next();
 };
 

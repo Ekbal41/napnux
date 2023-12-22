@@ -4,7 +4,7 @@ module.exports = napnux()
   .get("/", (req, res) => {
     res.render("welcome", {
       title: "Napnux | Project 🎉",
-      name: "Napnux js!",
+      name: "Napnux js!"
     });
   })
   .get("/hello/:name", (req, res) => {

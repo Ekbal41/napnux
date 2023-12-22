@@ -5,4 +5,10 @@ env:
 extends: standard
 parserOptions:
   ecmaVersion: latest
-rules: { semi: [2, "always"], quotes: [2, "double"] }
+rules:
+  {
+    semi: [2, "always"],
+    quotes: [2, "double"],
+    indent: "off",
+    space-before-function-paren: "off",
+  }

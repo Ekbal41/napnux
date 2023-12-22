@@ -1,11 +1,11 @@
 const napnux = require("../index.js");
 
 const A = (req, res, next) => {
-  //do something
+  // do something
   next();
 };
 const B = (req, res, next) => {
-  //do something
+  // do something
   next();
 };
 
